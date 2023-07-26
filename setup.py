@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup
+from setuptools import find_packages, setup
 
 packages = ["flashbots"]
 
@@ -22,6 +22,7 @@ setup_kwargs = {
     "package_data": package_data,
     "install_requires": install_requires,
     "python_requires": ">=3.9,<4.0",
+    "packages": find_packages(include=["flashbots*"]),
 }
 
 
