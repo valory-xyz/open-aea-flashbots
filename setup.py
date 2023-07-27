@@ -5,7 +5,10 @@ packages = ["flashbots"]
 
 package_data = {"": ["*"]}
 
-install_requires = ["web3>=6.0.0,<7.0.0"]
+install_requires = [
+    "web3>=6.0.0,<7.0.0",
+    "coincurve>=16.0.0,<18.0.0",
+]
 
 setup_kwargs = {
     "name": "open-aea-flashbots",
