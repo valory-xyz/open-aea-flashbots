@@ -7,7 +7,7 @@ package_data = {"": ["*"]}
 
 install_requires = [
     "web3>=6.0.0,<7.0.0",
-    "coincurve>=16.0.0,<18.0.0",
+    "coincurve>=18.0.0,<19.0.0",
 ]
 
 setup_kwargs = {
