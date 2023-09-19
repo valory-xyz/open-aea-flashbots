@@ -6,7 +6,7 @@ packages = ["flashbots"]
 package_data = {"": ["*"]}
 
 install_requires = [
-    "open-aea-web3==6.0.1",
+    "web3>=6.0.0,<7",
     "coincurve>=18.0.0,<19.0.0",
 ]
 
