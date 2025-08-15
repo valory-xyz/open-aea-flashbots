@@ -9,7 +9,7 @@ from eth_account._utils.legacy_transactions import (
     encode_transaction,
     serializable_unsigned_transaction_from_dict,
 )
-from eth_account._utils.typed_transactions import (
+from eth_account.typed_transactions import (
     AccessListTransaction,
     DynamicFeeTransaction,
 )
@@ -95,7 +95,7 @@ class FlashbotsPrivateTransactionResponse:
         self.max_block_number = max_block_number
         self.tx = {
             "signed_transaction": signed_tx,
-            "hash": self.w3.sha3(signed_tx),
+            "hash": self.w3.keccak(signed_tx),
         }
 
     def wait(self) -> bool:
@@ -151,7 +151,7 @@ class Flashbots(Module):
                 nonces[signer.address] = tx["nonce"] + 1
 
                 if "gas" not in tx:
-                    tx["gas"] = self.web3.eth.estimateGas(tx)
+                    tx["gas"] = self.web3.eth.estimate_gas(tx)
 
                 signed_tx = signer.sign_transaction(tx)
                 signed_transactions.append(signed_tx.rawTransaction)
@@ -356,7 +356,7 @@ class Flashbots(Module):
     )
 
     def get_user_stats_munger(self) -> List:
-        return [{"blockNumber": hex(self.web3.eth.blockNumber)}]
+        return [{"blockNumber": hex(self.web3.eth.block_number)}]
 
     getUserStats: Method[Callable[[Any], Any]] = Method(
         json_rpc_method=FlashbotsRPC.flashbots_getUserStats,
