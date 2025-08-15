@@ -28,7 +28,8 @@ class FlashbotsMiddlewareBuilder:
         """Return a middleware class bound to the given Flashbots provider."""
 
         class FlashbotsMiddleware(Web3Middleware):
-            def __init__(self):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, **kwargs)
                 self._flashbots_provider = flashbots_provider
 
             def wrap_make_request(
