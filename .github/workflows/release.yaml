@@ -1,0 +1,45 @@
+name: Release Flow
+
+# Controls when the action will run.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:  # TODO: Remove after testing
+
+permissions:
+  id-token: write
+
+jobs:
+  publish-pip-packages:
+    name: Publish the package on PyPi
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          sudo apt-get update --fix-missing
+          sudo apt-get autoremove
+          sudo apt-get autoclean
+          python -m pip install --upgrade pip poetry
+          poetry install
+          python --version
+
+      - name: Build wheels and source tarball
+        run: |
+          echo Processing open-aea-flashbots
+          poetry build
+
+      - name: Publish open-aea-flashbots Framework to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip_existing: true
+          packages_dir: dist/
