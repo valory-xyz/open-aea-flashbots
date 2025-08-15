@@ -3,11 +3,11 @@ authors = ["Georgios Konstantopoulos <me@gakonst.com>", "Nikolas Papaioannou <n0
 description = ""
 name = "flashbots"
 readme = "README.md"
-version = "1.1.1"
+version = "2.0.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-web3 = ">=5.22.0, <6"
+web3 = ">=7, <8"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3"
