@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
 
-packages = ["open-aea-flashbots"]
+packages = ["flashbots"]
 
 package_data = {"": ["*"]}
 
