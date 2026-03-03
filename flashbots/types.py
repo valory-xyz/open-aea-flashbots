@@ -4,7 +4,6 @@ from hexbytes import HexBytes
 from typing import TypedDict, List, Union, Optional
 from web3.types import TxParams, _Hash32
 
-
 # unsigned transaction
 FlashbotsBundleTx = TypedDict(
     "FlashbotsBundleTx",
