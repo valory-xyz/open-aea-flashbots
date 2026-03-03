@@ -4,7 +4,7 @@ Sends a bundle of two transactions which transfer some ETH into a random account
 
 Environment Variables:
 - ETH_SENDER_KEY: Private key of account which will send the ETH.
-- ETH_SIGNER_KEY: Private key of account which will sign the bundle. 
+- ETH_SIGNER_KEY: Private key of account which will sign the bundle.
     - This account is only used for reputation on flashbots and should be empty.
 - PROVIDER_URL: HTTP JSON-RPC Ethereum provider URL.
 """

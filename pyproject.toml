@@ -4,10 +4,10 @@ description = ""
 name = "open-aea-flashbots"
 packages = [{include = "flashbots"}]
 readme = "README.md"
-version = "2.0.0"
+version = "2.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 web3 = ">=7, <8"
 
 [tool.poetry.dev-dependencies]
